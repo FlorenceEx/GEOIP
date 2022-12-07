@@ -1,0 +1,133 @@
+.Background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    height: 600px;
+}
+
+.Fieldset {
+    flex: 1 1 auto;
+    justify-content: center;
+    align-self: center;
+    margin: 2%;
+    padding-bottom: 10%;
+}
+
+fieldset {
+    border-radius: 25px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(186, 146, 246, 0.5) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.warning{
+    flex: 1 1 auto;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    vertical-align: middle;
+    margin-left: 43%;
+    margin-right: 43%;
+    padding: 1%;
+    background-color: rgb(244, 112, 141);
+    border: solid black 1px;
+    border-radius: 25px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(186, 146, 246, 0.5) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+    padding: auto;
+}
+
+.Titre {
+    flex: 1 1 auto;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    margin: 2%;
+    padding: auto;
+}
+
+.Infos {
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    margin: 2%;
+    padding-bottom: 2%;
+}
+
+input {
+    flex: 1 1 auto;
+    border-radius: 10px;
+    padding: 3%;
+    margin: 3%;
+}
+
+button {
+    flex: 1 1 auto;
+    border-radius: 10px;
+    margin: 3%;
+    background-color: rgb(186, 146, 246);
+    padding: 1%;
+    border : solid transparent 2px;
+}
+
+button:hover{
+    border:solid rgb(186, 146, 246) 2px ;
+    background-color: white;
+    /* Firefox /
+    -moz-transition: all 0.2s ease-in;
+    / WebKit /
+    -webkit-transition: all 0.2s ease-in;
+    / Opera /
+    -o-transition: all 0.2s ease-in;
+    / Standard /
+    transition: all 0.2s ease-in;
+}
+
+a {
+    flex: 1 1 auto;
+    border-radius: 10px;
+    margin: 3%;
+    padding: 5%;
+    background-color: rgb(0, 195, 255);
+    border : solid transparent 2px;
+    text-decoration: none;
+    color: black;
+
+}
+
+a:hover{
+    border:solid rgb(0, 195, 255) 2px ;
+    background-color: white;
+    / Firefox /
+    -moz-transition: all 0.2s ease-in;
+    / WebKit /
+    -webkit-transition: all 0.2s ease-in;
+    / Opera /
+    -o-transition: all 0.2s ease-in;
+    / Standard */
+    transition: all 0.2s ease-in;
+}
+
+.erreur{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+    padding: auto;
+}
