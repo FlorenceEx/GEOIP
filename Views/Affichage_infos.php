@@ -1,3 +1,5 @@
+<!--favicon-->
+<link rel="icon" type="image/x-icon" href="../adresse-ip.ico"/>
 <?php
 include ($_SERVER['CONTEXT_DOCUMENT_ROOT'].'/Controllers/function.php');
 
@@ -13,10 +15,11 @@ if(!empty($_POST)){
         //header("Location: https://www.youtube.com/watch?v=p7YXXieghto");
     }
     $resultats = Infos_IP($_POST['ip']);
+
 }
 else{
     $resultats = Infos_IP($_SERVER['SERVER_ADDR']);
-    if($resultats['country_name'] == '-' && $resultats['country_code'] == '-' && $resultats['city_name'] == '-' && $resultats['region_name'] == '-' && $resultats['latitude'] == 0 && $resultats['longitude'] == 0){
+    if($resultats['Query']['country_name'] == '-' && $resultats['Query']['country_code'] == '-' && $resultats['Query']['city_name'] == '-' && $resultats['Query']['region_name'] == '-' && $resultats['Query']['latitude'] == 0 && $resultats['Query']['longitude'] == 0){
         $warning = 'Votre IP n\'est pas enregistrée dans la base';
     }
 }
@@ -38,10 +41,11 @@ else{
     <fieldset class="Fieldset">
         <!-- affichage du résultat de la requête -->
         <div class="Infos">
-            <p>L'adresse IP viens de : <b><?php echo $resultats['country_name']; ?> (<?php echo $resultats['country_code']; ?>)</b></p>
-            <p>Dans la ville de <b><?php echo $resultats['city_name'];?></b> en région <b><?php echo $resultats['region_name'];?></b></p>
-            <p>Latitude : <?php echo $resultats['latitude'];?></p>
-            <p>Longitude : <?php echo $resultats['longitude'];?></p>
+            <p>L'adresse IP viens de : <b><?php echo $resultats['Query']['country_name']; ?> (<?php echo $resultats['Query']['country_code']; ?>)</b></p>
+            <p>Dans la ville de <b><?php echo $resultats['Query']['city_name'];?></b> en région <b><?php echo $resultats['Query']['region_name'];?></b></p>
+            <p>Latitude : <?php echo $resultats['Query']['latitude'];?></p>
+            <p>Longitude : <?php echo $resultats['Query']['longitude'];?></p>
+            <p>Temps d'éxecution (en secondes) : <?php echo $resultats['time'];?></p>
             <button onclick="window.location.href='../index.php'">Retour</button>
         </div>
     </fieldset>

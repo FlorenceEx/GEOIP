@@ -1,5 +1,5 @@
 <!--favicon-->
-<link rel="icon" type="image/x-icon" href="adresse-ip.ico"/>;
+<link rel="icon" type="image/x-icon" href="adresse-ip.ico"/>
 <?php
 //fichier des fonctions
 include ($_SERVER['CONTEXT_DOCUMENT_ROOT'].'/Controllers/function.php');
@@ -42,11 +42,11 @@ $total = number_format($resultats_donnees['total'],'0','.',' ');
                 <button type="submit" value="Envoyer">Envoyer</button>
             </form>
             <!-- formulaire de recherche de l'ip de sa machine -->
-            <form>
-                <button class="form" type="button" onclick="window.location.href='Views/Affichage_infos.php'">Chercher mon IP</button>
+            <form method='post' action='Views/Affichage_infos.php'>
+                <button class="form" type="submit">Chercher mon IP</button>
             </form>
-            <form>
-                <button class="form" type="button" onclick="window.location.href='Views/Affichage_tester_ip.php'">Tester des IPs</button>
+            <form method='post' action='Views/Affichage_tester_ip.php'>
+                <button class="form" type="submit">Tester des IPs</button>
             </form>
         </div>
     </fieldset>
