@@ -4,9 +4,6 @@
 //fichier des fonctions
 include ($_SERVER['CONTEXT_DOCUMENT_ROOT'].'/Controllers/function.php');
 
-//verification erreur 403
-$test = $SERVER['REQUEST_URI'];
-error_403($test);
 
 //traitement mauvais format d'ip
 if(isset($_GET['di'])){

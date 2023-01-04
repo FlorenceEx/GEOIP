@@ -1,7 +1,4 @@
 <?php
-    $url_function = $_SERVER['REQUEST_URI'];
-    error_403($url_function);
-
     //connexion à la base de données
     function Connexion()
     {
@@ -23,7 +20,7 @@
     //récupérer les informations de l'ip en base
     function Infos_IP($ip)
     {
-        // Traitement de l'IP comme dans GitHub : Séparation de l'adresse IP en 4 parties qu'on multiplie chacune par le nombre de fois 256 demandé
+        // Traitement de l'IP : Séparation de l'adresse IP en 4 parties qu'on multiplie chacune par le nombre de fois 256 demandé
         $test = explode(".",$ip);
         $ip = $test[3] + $test[2]*256 + $test[1]*256*256 + $test[0]*256*256*256;
         
@@ -31,7 +28,7 @@
         $error = '';
         $warning = '';
         $message = '';
-        //départ
+        //départ chrono
         $depart = microtime(true);
         $dbh = Connexion();
         $sql = "SELECT country_code, country_name, region_name, city_name, latitude, longitude FROM geoip WHERE ip_from <= :ip AND ip_to >= :ip";
@@ -49,10 +46,11 @@
         $dataResult['warning'] = $warning;
         $dataResult['message'] = $message;
 
-          if($resultats['country_code'] != 'FR')
-          {
+        if($resultats['country_code'] != 'FR')
+        {
             echo '<script>window.location.href="../Views/error_403.php"</script>';
-          }
+        }
+        //fin chrono
         $fin = microtime(true);
 
         $tpsExec = number_format((float) $fin - $depart, 5);
@@ -68,6 +66,7 @@
         $dbh = null;
     }
 
+    //calcul du temps de traitement d'une IP
     function Temps_traitement()
     {
         $ip = rand(0, 255)+rand(0,255)*256+rand(0,255)*256*256+rand(0,255)*256*256*256;
@@ -94,10 +93,10 @@
         $dataResult['message'] = $message;
 
         $fin = microtime(true);
-        //echo'<br>';
+        
         $tpsExec = number_format((float) $fin - $depart, 5).' <br>';
         $dataResult['time'] = $tpsExec;
-        //return array($array,$resultats);
+        
         return $dataResult;
     }
 
@@ -107,7 +106,7 @@
         
         $dbh = Connexion();
         $sql = "SELECT COUNT(*) AS total FROM geoip";
-        $query = $dbh->query($sql); //execute la requête
+        $query = $dbh->query($sql); 
         $resultats_donnees = $query->fetch();
         return $resultats_donnees;
         $dbh = null;

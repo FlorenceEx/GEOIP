@@ -3,9 +3,8 @@
 <?php
 include ($_SERVER['CONTEXT_DOCUMENT_ROOT'].'/Controllers/function.php');
 
-//verification erreur 403
 $uri = $SERVER['REQUEST_URI'];
-error_403($uri);
+//error_403($uri);
 
 if(!empty($_POST)){
     if(!preg_match("/(\b25[0-5]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}/",$_POST['ip']))
