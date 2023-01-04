@@ -49,7 +49,10 @@
         $dataResult['warning'] = $warning;
         $dataResult['message'] = $message;
 
-
+          if($resultats['country_code'] != 'FR')
+          {
+            echo '<script>window.location.href="../Views/error_403.php"</script>';
+          }
         $fin = microtime(true);
 
         $tpsExec = number_format((float) $fin - $depart, 5);
@@ -110,14 +113,6 @@
         $dbh = null;
     }
     
-    function error_403($url)
-    {
-        if($url == '/Controllers/function.php')
-        {
-            echo '<script>window.location.href="../Views/error_403.php"</script>';
-        }
-
-    }
 
 
 
